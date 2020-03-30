@@ -15,7 +15,11 @@ int pow4(int a,int b){
   return r;
 }
 
-
+vector<int> fun(){
+	vector<int> a={1,2,3,4};
+	return a;
+}
+ 
 
 
 int main() {
@@ -30,7 +34,10 @@ int main() {
 //	}		
 	vector<int> a={1,2,3,4};
 	swap(a[0],a[1]);
-	cout << a[0]<<endl;
+	
+	vector<int> v=fun();
+	cout << v[0] <<endl;
+	
 	
 	
 	return 0;
