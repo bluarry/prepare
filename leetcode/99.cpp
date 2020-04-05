@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <map>
 #include <deque>
+#include <climits>
 using namespace std;
 
 struct TreeNode {
@@ -104,7 +105,7 @@ public:
     void recoverTree(TreeNode* root) {
         x=y=pre=NULL;
         find(root);
-        swap(&x->val,&y->val);
+        swap(x->val,y->val);
     }
 };
 

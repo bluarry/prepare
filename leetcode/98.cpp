@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <map>
 #include <queue>
+#include <climits>
+#include <stack>
 
 using namespace std;
 
@@ -48,7 +50,7 @@ public:
 
 
     bool isValidBST(TreeNode* root) {
-        int* lower=NULL,upper=NULL;
+        int *lower=NULL, *upper=NULL;
         
         enq(root,lower,upper);
 
@@ -58,8 +60,8 @@ public:
             upper=uppers.front();uppers.pop();
             
             if(root==NULL) continue;
-            if(lower!=NULL && root->val <=lower) return false;
-            if(upper!=NULL && root->val >=upper) return false;
+            if(lower!=NULL && root->val <= *lower) return false;
+            if(upper!=NULL && root->val >= *upper) return false;
 
             enq(root->left,lower,&root->val);
             enq(root->right,&root->val,upper);
