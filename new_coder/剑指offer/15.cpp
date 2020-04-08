@@ -8,15 +8,15 @@
 using namespace std;
 
 
-/*
+
 struct ListNode {
 	int val;
 	struct ListNode *next;
 	ListNode(int x) :
 			val(x), next(NULL) {
 	}
-};*/
-class Solution {
+};
+class Solution1 {
 public:
     ListNode* FindKthToTail(ListNode* Head, unsigned int k) {
         if(Head==NULL || k==0) return NULL;
@@ -40,6 +40,25 @@ public:
     }
 };
 
+class Solution {
+public:
+    void reOrderArray(vector<int> &ar) {
+    	int len = ar.size();
+    	int r=len-1,l=len-1;
+    	while(l>=0){
+    		if(l==0 &&(ar[l]&1) ==1) return;
+    		while(l>=0 && (ar[l]&1) ==1 )l--;
+    		if(l<0 ) return;
+    		int k=ar[l];
+    		int i=l--;
+    		while(i<r){
+    			ar[i]=ar[i+1];
+    			i++;
+			}
+			ar[r--]=k;
+		}
+    }
+};
 
 int main(){
 	Solution s;
