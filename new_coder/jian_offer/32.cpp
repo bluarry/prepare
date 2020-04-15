@@ -30,11 +30,45 @@ public:
         return v[n];   
     }
 };
+
+class Solution {
+public:
+    int getlen(int n){
+        int len=0;
+        while(n){
+            n/=10;
+            len++;
+        }
+        return len;
+    }
+    int NumberOf1Between1AndN_Solution(int n)
+    {
+        if(n<1) return 0;
+        int len=getlen(n);
+        int first=n/static_cast<int>(pow(10,len-1));
+        if(len==1 && first==0) return 0;
+        else if(len==1) return 1;
+
+        int num1=0;
+        //21345
+        if(first>1){
+            num1=static_cast<int>(pow(10,len-1));
+        }else{
+            num1=n%static_cast<int>(pow(10,len-1))+1;
+        }
+        //1345--11345,11346--21345
+        int num2=first*(len-1)*static_cast<int>(pow(10,len-2));
+
+        int num3=NumberOf1Between1AndN_Solution(n%static_cast<int>(pow(10,len-1)));
+        return num1+num2+num3;
+    }
+};
+
 int main(){
     //freopen("out.txt","w",stdout);
     Solution s;
    
-    cout <<s.NumberOf1Between1AndN_Solution(21345)<<endl;
+    cout <<s.NumberOf1Between1AndN_Solution(21345)<<endl; //18821
  
 
 
