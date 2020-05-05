@@ -142,7 +142,7 @@ public:
 int main(){
     freopen("in.txt","r",stdin);
     string s;
-    Solution so;
+    Solution_newcode so;
     while(cin >> s){
         cout << so.StrToInt(s)<<endl;
     }
